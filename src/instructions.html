@@ -1,1 +1,317 @@
+<!DOCTYPE html>
+<html lang="yi" dir="rtl">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions - QR SMS</title>
+
+    <!-- Using the same fonts as index.html -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=David+Libre:wght@400;700&family=Inter:wght@400;600;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #733020 0%, #6b4e11 100%);
+            --bg-color: #fff9f0;
+            --text-color: #2c1810;
+            --accent-color: #6b4e11;
+            --border-color: #d4a574;
+            --highlight-bg: #f4e4c1;
+        }
+
+        body {
+            font-family: 'Alef', 'Frank Ruhl Libre', serif;
+            background-color: #f7f2e8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            color: var(--text-color);
+            padding-top: 80px;
+            /* Space for fixed header */
+        }
+
+        /* Navigation Header */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary-gradient);
+            box-shadow: 0 2px 10px rgba(107, 78, 17, 0.3);
+            padding: 15px 0;
+            z-index: 1000;
+            text-align: center;
+            border-bottom: none;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            direction: ltr;
+            /* Keep menu LTR even on RTL page */
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: #f4e4c1;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            /* Keep menu font consistent */
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: #fff;
+            color: var(--accent-color);
+        }
+
+        .card {
+            background: var(--bg-color);
+            border-radius: 13px;
+            padding: 40px;
+            max-width: 700px;
+            width: 100%;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(107, 78, 17, 0.15);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            text-align: center;
+            margin-top: 0;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .step {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.4);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #733020;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .step-content {
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: #733020;
+            font-weight: bold;
+        }
+
+        kbd {
+            background-color: #eee;
+            border-radius: 3px;
+            border: 1px solid #b4b4b4;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+            color: #333;
+            display: inline-block;
+            font-size: .85em;
+            font-weight: 700;
+            line-height: 1;
+            padding: 2px 4px;
+            white-space: nowrap;
+            font-family: sans-serif;
+        }
+
+        .success-msg {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(107, 78, 17, 0.1);
+            border-radius: 8px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #8c6b30;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Image Placeholder Styles */
+        .img-placeholder {
+            background-color: #e8dbc3;
+            border: 2px dashed #d4a574;
+            color: #8c6b30;
+            padding: 40px;
+            text-align: center;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .img-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .step-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #d4a574;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="site-nav">
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">הויפט בלאט</a>
+            <a href="instructions.html" class="nav-item active">אינסטרוקציעס</a>
+        </div>
+    </nav>
+
+    <div class="card">
+        <h1>באניצונג אינסטרוקציעס</h1>
+
+        <div class="step">
+            <div class="step-title">שטאפל 1:</div>
+            <div class="step-content">
+                גייט צום לינק: <a href="https://sites.google.com/view/qr-sms/"
+                    target="_blank">https://sites.google.com/view/qr-sms/</a>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">שטאפל 2:</div>
+            <div class="step-content">
+                מאכט זיכער אז די <strong>Bookmarks Bar</strong> איז אפן.<br>
+                מען קען דאס עפענען דורכ'ן דרוקן <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> צוזאמען, אדער דורכ'ן
+                אנשטעלן ביי די סעטינגס.
+
+                <div class="img-grid">
+                    <img src="01.png" alt="Step 2 - Bookmarks Bar" class="step-img">
+                    <img src="02.png" alt="Step 2 - Menu" class="step-img">
+                    <img src="03.png" alt="Step 2 - Shortcut" class="step-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">שטאפל 3:</div>
+            <div class="step-content">
+                אצינד גיי צום <strong>ברוינעם קעסטל</strong>, קליק אויף דעם מיט'ן מייזל, און אזוי קליקנדיג
+                <strong>'שלעפ' דאס אריין</strong> אינעם 'בוקמארקס באר'.
+                <div class="img-grid">
+                    <img src="04.png" alt="Step 3 - Drag 1" class="step-img">
+                    <img src="05.png" alt="Step 3 - Drag 2" class="step-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">שטאפל 4:</div>
+            <div class="step-content">
+                איר וועט יעצט זען דעם 'בוקמארק' אין אייער 'באר'.
+                <img src="06.png" alt="Step 4 - Bookmark in Bar" class="step-img" style="margin-top: 15px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">שטאפל 5:</div>
+            <div class="step-content">
+                איינמאל דער בוקמארק ליגט אין דעם באר, גייט צום בלאט מיט'ן QR קאוד, און קליקט אויפ'ן 'בוקמארק'.
+                <img src="07.png" alt="Step 5 - Click Bookmark" class="step-img" style="margin-top: 15px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">שטאפל 6:</div>
+            <div class="step-content">
+                דאס וועט אויטאמאטיש עפענען א נייעם טעב. אין דעם נייעם טעב קליקט נאכאמאל אויפן בוקמארק.
+                <img src="08.png" alt="Step 6 - New Tab" class="step-img" style="margin-top: 15px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">שטאפל 7:</div>
+            <div class="step-content">
+                עס וועט זיך עפענען א פאפ-אפ, וואס וועט אייך געבן א 'פאון נאמבער', מיט א 'מעסעדזש'.
+                <img src="09.png" alt="Step 7 - Popup" class="step-img" style="margin-top: 15px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">שטאפל 8:</div>
+            <div class="step-content">
+                איר דארפט א אצינד טעקסטן אקוראט דעם 'מעסעדזש' צום אנגעבענעם 'פאון נאמבער'.
+                <img src="10.png" alt="Step 8 - Send Message" class="step-img" style="margin-top: 15px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">שטאפל 9:</div>
+            <div class="step-content">
+                פאר אייער באקוועמליכקייט קענט איר קאפיען דעם 'נומער', דעם 'מעסעדזש', אדער ביידע צוזאמען, דאס צו קענען
+                אריינשיקן באיזה אופן צו אייער פאון.
+                <img src="11.png" alt="Step 9 - Copy Info" class="step-img" style="margin-top: 15px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">שטאפל 10:</div>
+            <div class="step-content">
+                איר קענט פארמאכן דעם פאפ-אפ. עס קען נעמען אפאר סעקונדעס, ביז איר וועט זען א מעסעדזש אז איר קענט
+                צוריקגיין צום אנדערן טעב.
+                <img src="12.png" alt="Step 10 - Wait Message" class="step-img" style="margin-top: 15px;">
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">שטאפל 11:</div>
+            <div class="step-content">
+                גייט צוריק צום אנדערן טעב, און ענדיגט דאס אויפסעטן.
+                <img src="13.png" alt="Step 11 - Finish" class="step-img" style="margin-top: 15px;">
+            </div>
+        </div>
+
+        <div class="success-msg">
+            אייער אקאונט איז אצינד באשטעטיגט!
+        </div>
+
+    </div>
+
+</body>
+
+</html>
